@@ -19,20 +19,20 @@ Version Control:
 GitHub is utilized for version control and efficient management of code changes. GitHub provides features such as version history, branching, and merging.
 
 # how-to setup project in a local environment.
--1.download XAMPP Using this link = https://www.apachefriends.org/download.html
--2.Instrall XAMPP
--3.Run XAMPP
--4.Start Apache and Mysql 
--5.Click Explorer (open Xampp folder)
--6.Go to htdocs folder .
--7.Press Alt + D to select the address bar.
--8.Type cmd and press Enter. This will open a command prompt window with the current folder as its location.
+- **1.download XAMPP Using this link = https://www.apachefriends.org/download.html
+- **2.Instrall XAMPP
+- **3.Run XAMPP
+- **4.Start Apache and Mysql 
+- **5.Click Explorer (open Xampp folder)
+- **6.Go to htdocs folder .
+- **7.Press Alt + D to select the address bar.
+- **8.Type cmd and press Enter. This will open a command prompt window with the current folder as its location.
 (this method will open a command prompt window with the directory set to the folder you specified, allowing you to run commands directly in that folder)
--9.Type = "Git clone https://github.com/Vishwa-ud/ERP-System.git" And Press Enter.
+- **9.Type = "Git clone https://github.com/Vishwa-ud/ERP-System.git" And Press Enter.
 (creates a copy of a remote repository on your local machine)
--10.Go Back to Xampp Under Apache Clicke Admin 
+- **10.Go Back to Xampp Under Apache Clicke Admin 
 (It Will show Apache Dashbord)
--11.Type this in search bar "http://localhost/ERP-System/"
+- **11.Type this in search bar "http://localhost/ERP-System/"
 
 
 #Video demonstrating the system
