@@ -10,14 +10,14 @@ if (isset($_POST['submit_item'])) {
     $quantity = $_POST['quantity'];
     $unitPrice = $_POST['unit_price'];
 
-    $sql = "INSERT INTO items (item_code, item_name, item_category, item_subcategory, quantity, unit_price)
+    $sql = "INSERT INTO item (item_code, item_name, item_category, item_subcategory, quantity, unit_price)
             VALUES ('$itemCode', '$itemName', '$itemCategory', '$itemSubcategory', '$quantity', '$unitPrice')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 }
 
 // Update item
@@ -30,7 +30,7 @@ if (isset($_POST['update_item'])) {
     $quantity = $_POST['quantity'];
     $unitPrice = $_POST['unit_price'];
 
-    $sql = "UPDATE items SET item_code='$itemCode', item_name='$itemName', item_category='$itemCategory',
+    $sql = "UPDATE item SET item_code='$itemCode', item_name='$itemName', item_category='$itemCategory',
             item_subcategory='$itemSubcategory', quantity='$quantity', unit_price='$unitPrice' WHERE id='$itemId'";
 
     if ($conn->query($sql) === TRUE) {
@@ -44,7 +44,7 @@ if (isset($_POST['update_item'])) {
 if (isset($_GET['delete_item'])) {
     $itemId = $_GET['delete_item'];
 
-    $sql = "DELETE FROM items WHERE id='$itemId'";
+    $sql = "DELETE FROM item WHERE id='$itemId'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record deleted successfully";
@@ -54,6 +54,6 @@ if (isset($_GET['delete_item'])) {
 }
 
 // Fetch all items
-$sql = "SELECT * FROM items";
+$sql = "SELECT * FROM item";
 $result = $conn->query($sql);
 ?>

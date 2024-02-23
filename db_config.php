@@ -1,9 +1,9 @@
 <?php
 // Database configuration
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "your_database_name";
+$username = "root";
+$password = "";
+$dbname = "erp_system";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

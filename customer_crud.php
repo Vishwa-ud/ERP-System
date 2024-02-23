@@ -5,12 +5,13 @@ include 'db_config.php';
 if (isset($_POST['submit_customer'])) {
     $title = $_POST['title'];
     $firstName = $_POST['first_name'];
+    $middleName = $_POST['middle_name']; // added middle name
     $lastName = $_POST['last_name'];
     $contactNumber = $_POST['contact_number'];
     $district = $_POST['district'];
 
-    $sql = "INSERT INTO customers (title, first_name, last_name, contact_number, district)
-            VALUES ('$title', '$firstName', '$lastName', '$contactNumber', '$district')";
+    $sql = "INSERT INTO customer (title, first_name, middle_name, last_name, contact_no, district)
+            VALUES ('$title', '$firstName', '$middleName', '$lastName', '$contactNumber', '$district')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -24,12 +25,13 @@ if (isset($_POST['update_customer'])) {
     $customerId = $_POST['customer_id'];
     $title = $_POST['title'];
     $firstName = $_POST['first_name'];
+    $middleName = $_POST['middle_name']; // added middle name
     $lastName = $_POST['last_name'];
     $contactNumber = $_POST['contact_number'];
     $district = $_POST['district'];
 
-    $sql = "UPDATE customers SET title='$title', first_name='$firstName', last_name='$lastName',
-            contact_number='$contactNumber', district='$district' WHERE id='$customerId'";
+    $sql = "UPDATE customer SET title='$title', first_name='$firstName', middle_name='$middleName',
+            last_name='$lastName', contact_no='$contactNumber', district='$district' WHERE id='$customerId'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
@@ -42,7 +44,7 @@ if (isset($_POST['update_customer'])) {
 if (isset($_GET['delete_customer'])) {
     $customerId = $_GET['delete_customer'];
 
-    $sql = "DELETE FROM customers WHERE id='$customerId'";
+    $sql = "DELETE FROM customer WHERE id='$customerId'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Record deleted successfully";
@@ -52,6 +54,6 @@ if (isset($_GET['delete_customer'])) {
 }
 
 // Fetch all customers
-$sql = "SELECT * FROM customers";
+$sql = "SELECT * FROM customer";
 $result = $conn->query($sql);
 ?>

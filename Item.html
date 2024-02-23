@@ -10,35 +10,47 @@
 <body>
     <div class="container">
         <h1>Item Form</h1>
-        <form id="item-form">
-            <!-- Item Form -->
-<form id="item-form">
-    <div class="form-group">
-        <label for="item-code">Item Code</label>
-        <input type="text" class="form-control" id="item-code" required>
-    </div>
-    <div class="form-group">
-        <label for="item-name">Item Name</label>
-        <input type="text" class="form-control" id="item-name" required>
-    </div>
-    <div class="form-group">
-        <label for="item-category">Item Category</label>
-        <input type="text" class="form-control" id="item-category" required>
-    </div>
-    <div class="form-group">
-        <label for="item-subcategory">Item Subcategory</label>
-        <input type="text" class="form-control" id="item-subcategory" required>
-    </div>
-    <div class="form-group">
-        <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" id="quantity" required>
-    </div>
-    <div class="form-group">
-        <label for="unit-price">Unit Price</label>
-        <input type="number" class="form-control" id="unit-price" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <!-- Item Form -->
+        <form method="post" action="item_crud.php">
+            <div class="form-group">
+                <label for="item-code">Item Code</label>
+                <input type="text" class="form-control" id="item-code" name="item_code" required>
+            </div>
+            <div class="form-group">
+                <label for="item-name">Item Name</label>
+                <input type="text" class="form-control" id="item-name" name="item_name" required>
+            </div>
+            <div class="form-group">
+                <label for="item-category">Item Category</label>
+                <select class="form-control" id="item-category" name="item_category" required>
+                    <option value="">Select Item Category</option>
+                    <option value="1">Printers</option>
+                    <option value="2">Laptops</option>
+                    <option value="3">Gadgets</option>
+                    <option value="4">Ink Bottles</option>
+                    <option value="5">Cartridges</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="item-subcategory">Item Subcategory</label>
+                <select class="form-control" id="item-subcategory" name="item_subcategory" required>
+                    <option value="">Select Item Subcategory</option>
+                    <option value="1">HP</option>
+                    <option value="2">Dell</option>
+                    <option value="3">Lenovo</option>
+                    <option value="4">Acer</option>
+                    <option value="5">Samsung</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="unit-price">Unit Price</label>
+                <input type="number" class="form-control" id="unit-price" name="unit_price" required>
+            </div>
+            <button type="submit" class="btn btn-primary" name = "submit_item"   >Submit</button>
         </form>
     </div>
 
