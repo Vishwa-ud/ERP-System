@@ -6,25 +6,38 @@
     <title>ERP System</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+        .btn-group {
+            margin-bottom: 20px;
+        }
+        .btn-group .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to ERP System</h1>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 btn-group">
                 <a href="customer.html" class="btn btn-primary">Add Customer</a>
-            </div>
-            <div class="col-md-6">
                 <a href="viewcustomerlist.php" class="btn btn-primary">View Customer List</a>
             </div>
-
-            <br/>
-            <br/>
-
-            <div class="col-md-6">
+            <div class="col-md-6 btn-group">
                 <a href="item.html" class="btn btn-primary">Add Item</a>
-            </div>
-            <div class="col-md-6">
                 <a href="viewitemlist.php" class="btn btn-primary">View Item List</a>
             </div>
         </div>

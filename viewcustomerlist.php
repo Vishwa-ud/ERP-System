@@ -64,6 +64,8 @@ $result = $conn->query($sql);
 <body>
     <div class="container">
         <h1>Customer List</h1>
+        <!-- Go Back button -->
+        <a href="Customer.html" class="btn btn-primary">Add Customer</a>
         <table class="table">
             <thead>
                 <tr>

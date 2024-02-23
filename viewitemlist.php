@@ -43,13 +43,13 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Item List</title>
+    <title>Item List</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>View Item List</h1>
+        <h1>Item List</h1>
         <!-- Go Back button -->
         <a href="Item.html" class="btn btn-primary">Add Item</a>
         <?php
