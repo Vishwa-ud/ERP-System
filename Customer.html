@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Register Customer</h1>
          <!-- Customer Form -->
-         <form method="post" action="customer_crud.php">
+         <form method="post" action="customer_crud.php" id="customerForm" onsubmit="return validateForm()">
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
@@ -67,5 +67,59 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function validateForm() {
+            var title = document.getElementById('title').value;
+            var firstName = document.getElementById('first-name').value;
+            var middleName = document.getElementById('middle-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var contactNumber = document.getElementById('contact-number').value;
+            var district = document.getElementById('district').value;
+    
+            // Regular expressions for validation
+            var nameRegex = /^[A-Za-z]+$/;
+            var contactRegex = /^[0-9]{10}$/;
+            var districtRegex = /^[0-9]+$/;
+    
+            // Validation for First Name
+            if (!firstName.match(nameRegex)) {
+                alert('First Name can only contain alphabets.');
+                return false;
+            }
+    
+            // Validation for Middle Name
+            if (!middleName.match(nameRegex)) {
+                alert('Middle Name can only contain alphabets.');
+                return false;
+            }
+    
+            // Validation for Last Name
+            if (!lastName.match(nameRegex)) {
+                alert('Last Name can only contain alphabets.');
+                return false;
+            }
+    
+            // Validation for Contact Number
+            if (!contactNumber.match(contactRegex)) {
+                alert('Contact Number must be 10 digits long and contain only numeric characters.');
+                return false;
+            }
+    
+            // Validation for District
+            if (!district.match(districtRegex)) {
+                alert('District can only contain numeric characters.');
+                return false;
+            }
+    
+            // Validation for ensuring all fields are filled
+            if (title === '' || firstName === '' || middleName === '' || lastName === '' || contactNumber === '' || district === '') {
+                alert('Please fill in all fields.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
 </body>
 </html>

@@ -65,6 +65,7 @@ if(isset($_POST['search'])) {
                 ?>
             </tbody>
         </table>
+        <a href="home.html" class="btn btn-primary">Go Back</a>
     </div>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Register Item details</h1>
         <!-- Item Form -->
-        <form method="post" action="item_crud.php">
+        <form method="post" action="item_crud.php" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="item-code">Item Code</label>
                 <input type="text" class="form-control" id="item-code" name="item_code" required>
@@ -50,7 +50,7 @@
                 <label for="unit-price">Unit Price</label>
                 <input type="number" class="form-control" id="unit-price" name="unit_price" required>
             </div>
-            <button type="submit" class="btn btn-primary" name = "submit_item"   >Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit_item">Submit</button>
         </form>
         <br/>
         <!-- Go Back button -->
@@ -61,5 +61,54 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function validateForm() {
+            var itemCode = document.getElementById('item-code').value;
+            var itemName = document.getElementById('item-name').value;
+            var itemCategory = document.getElementById('item-category').value;
+            var itemSubcategory = document.getElementById('item-subcategory').value;
+            var quantity = document.getElementById('quantity').value;
+            var unitPrice = document.getElementById('unit-price').value;
+    
+            // Regular expressions for validation
+            var itemCodeRegex = /^[A-Z0-9]+$/; // Only capital letters and numbers allowed
+            var itemNameRegex = /^[A-Za-z\s]+$/; // Only alphabet characters and spaces allowed
+            var quantityRegex = /^[0-9]+$/; // Only numeric characters allowed
+            var unitPriceRegex = /^\d+(\.\d{1,2})?$/; // Only numeric characters with optional decimal point
+    
+            // Validation for Item Code
+            if (!itemCode.match(itemCodeRegex)) {
+                alert('Item Code can only contain capital letters and numbers.');
+                return false;
+            }
+    
+            // Validation for Item Name
+            if (!itemName.match(itemNameRegex)) {
+                alert('Item Name can only contain alphabet characters and spaces.');
+                return false;
+            }
+    
+            // Validation for Quantity
+            if (!quantity.match(quantityRegex)) {
+                alert('Quantity must be numeric.');
+                return false;
+            }
+    
+            // Validation for Unit Price
+            if (!unitPrice.match(unitPriceRegex)) {
+                alert('Unit Price must be numeric.');
+                return false;
+            }
+    
+            // Validation for ensuring all fields are filled
+            if (itemCode === '' || itemName === '' || itemCategory === '' || itemSubcategory === '' || quantity === '' || unitPrice === '') {
+                alert('Please fill in all fields.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
 </body>
 </html>
