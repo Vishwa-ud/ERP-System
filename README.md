@@ -35,6 +35,6 @@ GitHub is utilized for version control and efficient management of code changes.
 - 11.Now in your browser  in the address bar type this "http://localhost/ERP-System/" to view the output.
 
 
-#Video demonstrating the system
-https://github.com/Vishwa-ud/ERP-System/assets/94515855/dbfb9328-1029-4bcb-ab26-7a4003f5a654
+# Video demonstrating the system
+[https://github.com/Vishwa-ud/ERP-System/assets/94515855/dbfb9328-1029-4bcb-ab26-7a4003f5a654]
 
