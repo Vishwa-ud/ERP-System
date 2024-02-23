@@ -30,7 +30,7 @@ GitHub is utilized for version control and efficient management of code changes.
 (this method will open a command prompt window with the directory set to the folder you specified, allowing you to run commands directly in that folder)
 - 9.Type = "Git clone https://github.com/Vishwa-ud/ERP-System.git" And Press Enter.
 (creates a copy of a remote repository on your local machine)
-- 10.Go Back to Xampp Under Apache Clicke Admin 
+- 10.Go Back to Xampp Under Apache Click Admin 
 (It Will show Apache Dashbord)
 - 11.Now in your browser  in the address bar type this "http://localhost/ERP-System/" to view the output.
 
