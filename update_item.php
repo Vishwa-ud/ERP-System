@@ -35,7 +35,6 @@ if (isset($_GET['id'])) {
                 <label for="item-name">Item Name</label>
                 <input type="text" class="form-control" id="item-name" name="item_name" value="<?php echo $row['item_name']; ?>" required>
             </div>
-            <!-- Include other fields as per your item structure -->
             <div class="form-group">
                 <label for="item-category">Item Category</label>
                 <input type="text" class="form-control" id="item-category" name="item_category" value="<?php echo $row['item_category']; ?>" required>
