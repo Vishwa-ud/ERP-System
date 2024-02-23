@@ -14,6 +14,7 @@ if(isset($_GET['id'])) {
         echo "<div class='alert alert-danger' role='alert'>Error deleting item: " . $conn->error . "</div>";
     }
 }
+
 // Check for message in URL
 if (isset($_GET['message'])) {
     $message = $_GET['message'];
@@ -27,7 +28,13 @@ if (isset($_GET['error'])) {
 }
 
 // Fetch all items
-$sql = "SELECT * FROM item";
+$search_query = "";
+if(isset($_GET['search'])) {
+    $search_query = $_GET['search'];
+    $sql = "SELECT * FROM item WHERE item_name LIKE '%$search_query%' OR item_code LIKE '%$search_query%'";
+} else {
+    $sql = "SELECT * FROM item";
+}
 $result = $conn->query($sql);
 ?>
 <?php
@@ -50,6 +57,15 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 <body>
     <div class="container">
         <h1>Item List</h1>
+        <!-- Search Form -->
+        <form action="" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by Item Name or Item Code" name="search" value="<?php echo htmlspecialchars($search_query); ?>">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
         <!-- Go Back button -->
         <a href="Item.html" class="btn btn-primary">Add Item</a>
         <?php

@@ -21,7 +21,6 @@ if(isset($_POST['action']) && isset($_POST['customer_id'])) {
     }
 }
 
-
 // Check if a message is present in the URL
 if(isset($_GET['update_message'])) {
     $update_message = $_GET['update_message'];
@@ -33,7 +32,6 @@ if(isset($_GET['update_message'])) {
         echo '<div class="alert alert-danger" role="alert">Failed to update customer. Please try again.</div>';
     }
 }
-
 
 // Check if a message is present in the URL
 if(isset($_GET['message'])) {
@@ -47,8 +45,22 @@ if(isset($_GET['message'])) {
     }
 }
 
-// Fetch all customers
-$sql = "SELECT * FROM customer";
+// Initialize search query
+$search_query = "";
+
+// Check if search form is submitted
+if(isset($_GET['search'])) {
+    // Get the search query from the form
+    $search_query = $_GET['search'];
+
+    // Construct the SQL query to search by first name, middle name, or last name
+    $sql = "SELECT * FROM customer WHERE first_name LIKE '%$search_query%' OR middle_name LIKE '%$search_query%' OR last_name LIKE '%$search_query%'";
+} else {
+    // If no search query, fetch all customers
+    $sql = "SELECT * FROM customer";
+}
+
+// Execute the SQL query
 $result = $conn->query($sql);
 ?>
 
@@ -64,6 +76,15 @@ $result = $conn->query($sql);
 <body>
     <div class="container">
         <h1>Customer List</h1>
+        <!-- Search Form -->
+        <form action="" method="GET" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by Name" name="search" value="<?php echo htmlspecialchars($search_query); ?>">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
         <!-- Go Back button -->
         <a href="Customer.html" class="btn btn-primary">Add Customer</a>
         <table class="table">
