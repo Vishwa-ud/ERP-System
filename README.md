@@ -32,7 +32,7 @@ GitHub is utilized for version control and efficient management of code changes.
 (creates a copy of a remote repository on your local machine)
 - 10.Go Back to Xampp Under Apache Clicke Admin 
 (It Will show Apache Dashbord)
-- 11.Type this in search bar "http://localhost/ERP-System/"
+- 11.Now in your browser  in the address bar type this "http://localhost/ERP-System/" to view the output.
 
 
 #Video demonstrating the system
