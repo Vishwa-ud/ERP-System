@@ -15,8 +15,10 @@ if (isset($_POST['submit_item'])) {
     $sqlItem = "INSERT INTO item (item_code, item_category, item_subcategory, item_name, quantity, unit_price)
                 VALUES ('$itemCode', '$itemCategory', '$itemSubcategory', '$itemName', '$quantity', '$unitPrice')";
 
-    if ($conn->query($sqlItem) === TRUE) {
-        echo "New record created successfully";
+if ($conn->query($sqlItem) === TRUE) {
+    // Redirect to viewitemlist.php with success message
+    header("Location: viewitemlist.php?success=1");
+    exit();
 
         // Insert into ItemCategory table if not already exists
         $sqlCategory = "INSERT INTO item_category (category) VALUES ('$itemCategory')
@@ -29,7 +31,9 @@ if (isset($_POST['submit_item'])) {
         $conn->query($sqlSubcategory);
 
     } else {
-        echo "Error: " . $sqlItem . "<br>" . $conn->error;
+        // Redirect to viewitemlist.php with error message
+        header("Location: viewitemlist.php?error=1");
+        exit();
     }
 }
 

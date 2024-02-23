@@ -30,6 +30,13 @@ if (isset($_GET['error'])) {
 $sql = "SELECT * FROM item";
 $result = $conn->query($sql);
 ?>
+<?php
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    echo "<div class='alert alert-success' role='alert'>Item added successfully.</div>";
+} elseif (isset($_GET['error']) && $_GET['error'] == 1) {
+    echo "<div class='alert alert-danger' role='alert'>Error adding item.</div>";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +50,8 @@ $result = $conn->query($sql);
 <body>
     <div class="container">
         <h1>View Item List</h1>
+        <!-- Go Back button -->
+        <a href="Item.html" class="btn btn-primary">Add Item</a>
         <?php
         // Display messages after deletion attempt
         if(isset($_GET['id'])) {
@@ -91,6 +100,8 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
+        <!-- Go Back button -->
+        <a href="home.html" class="btn btn-primary">Go Back</a>
     </div>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->

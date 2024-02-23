@@ -13,11 +13,15 @@ if (isset($_POST['submit_customer'])) {
     $sql = "INSERT INTO customer (title, first_name, middle_name, last_name, contact_no, district)
             VALUES ('$title', '$firstName', '$middleName', '$lastName', '$contactNumber', '$district')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+if ($conn->query($sql) === TRUE) {
+    // Successfully inserted, redirect to viewcustomerlist.php with success message
+    header("Location: viewcustomerlist.php?message=success");
+    exit();
+} else {
+    // Failed to insert, redirect to viewcustomerlist.php with error message
+    header("Location: viewcustomerlist.php?message=error");
+    exit();
+}
 }
 
 // Update customer
