@@ -6,10 +6,12 @@ if(isset($_POST['search'])) {
     $end_date = $_POST['end_date'];
 
     // Fetch invoices within the date range
-    $sql = "SELECT invoice_number, invoice_date, customer, district, COUNT(item) AS item_count, SUM(item_amount) AS invoice_amount 
-            FROM invoices 
-            WHERE invoice_date BETWEEN '$start_date' AND '$end_date' 
-            GROUP BY invoice_number";
+    $sql = "SELECT i.invoice_no AS invoice_number, i.date AS invoice_date, i.customer, d.district, COUNT(im.item_id) AS item_count, SUM(im.amount) AS invoice_amount 
+            FROM invoice i
+            INNER JOIN invoice_master im ON i.invoice_no = im.invoice_no
+            INNER JOIN district d ON i.customer = d.id
+            WHERE i.date BETWEEN '$start_date' AND '$end_date' 
+            GROUP BY i.invoice_no";
     $result = $conn->query($sql);
 }
 ?>

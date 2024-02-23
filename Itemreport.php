@@ -47,6 +47,7 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
+        <a href="home.html" class="btn btn-primary">Go Back</a>
     </div>
 
     <script>

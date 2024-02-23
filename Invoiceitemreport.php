@@ -5,11 +5,8 @@ if(isset($_POST['search'])) {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
 
-    // Fetch invoice items within the date range
-    $sql = "SELECT i.invoice_number, i.invoice_date, i.customer, ii.item_name, ii.item_code, ii.item_category, ii.unit_price 
-            FROM invoice_items ii 
-            INNER JOIN invoices i ON ii.invoice_id = i.id 
-            WHERE i.invoice_date BETWEEN '$start_date' AND '$end_date'";
+    // Fetch invoices within the date range
+    $sql = "SELECT * FROM invoice WHERE `date` BETWEEN '$start_date' AND '$end_date'";
     $result = $conn->query($sql);
 }
 ?>
@@ -19,13 +16,13 @@ if(isset($_POST['search'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice Item Report</title>
+    <title>Invoice Report</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Invoice Item Report</h1>
+        <h1>Invoice Report</h1>
         <!-- Search Form -->
         <form action="" method="POST" class="mb-3">
             <div class="form-group">
@@ -42,12 +39,11 @@ if(isset($_POST['search'])) {
             <thead>
                 <tr>
                     <th>Invoice Number</th>
-                    <th>Invoice Date</th>
-                    <th>Customer Name</th>
-                    <th>Item Name</th>
-                    <th>Item Code</th>
-                    <th>Item Category</th>
-                    <th>Unit Price</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Customer</th>
+                    <th>Item Count</th>
+                    <th>Amount</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,17 +51,16 @@ if(isset($_POST['search'])) {
                 if(isset($result) && $result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td>" . $row['invoice_number'] . "</td>";
-                        echo "<td>" . $row['invoice_date'] . "</td>";
+                        echo "<td>" . $row['invoice_no'] . "</td>";
+                        echo "<td>" . $row['date'] . "</td>";
+                        echo "<td>" . $row['time'] . "</td>";
                         echo "<td>" . $row['customer'] . "</td>";
-                        echo "<td>" . $row['item_name'] . "</td>";
-                        echo "<td>" . $row['item_code'] . "</td>";
-                        echo "<td>" . $row['item_category'] . "</td>";
-                        echo "<td>" . $row['unit_price'] . "</td>";
+                        echo "<td>" . $row['item_count'] . "</td>";
+                        echo "<td>" . $row['amount'] . "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='7'>No invoice items found</td></tr>";
+                    echo "<tr><td colspan='6'>No invoices found</td></tr>";
                 }
                 ?>
             </tbody>
